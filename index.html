@@ -1,17 +1,128 @@
-<!-- Google Calendar Appointment Scheduling begin -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-<script>
-(function() {
-  var target = document.currentScript;
-  window.addEventListener('load', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2cc4WoeycAcK-CVgc5Dz2dJvSSwdGarjH3LRdngc7f5tRw0pX3vBHjlefIQlAXMzcMcs2f_yjP?gv=true',
-      color: '#039BE5',
-      label: "Programar medici\xF3n",
-      target,
-    });
-  });
-})();
-</script>
-<!-- end Google Calendar Appointment Scheduling -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Turnos Online — Consultorio</title>
+  <meta name="description" content="Reservá turnos online de forma rápida y segura." />
+  <style>
+    :root{
+      --bg:#0b1320; /* fondo profundo */
+      --card:#0f172a; /* tarjeta */
+      --text:#e5e7eb; /* texto principal */
+      --muted:#94a3b8; /* texto secundario */
+      --accent:#039BE5; /* color del botón de Google */
+      --ring:#1f2a44; /* borde/sombra */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, #1e293b 0%, var(--bg) 40%, #091120 100%);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .shell {
+      width: 100%;
+      max-width: 880px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0)), var(--card);
+      border: 1px solid var(--ring);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      padding: 28px clamp(20px, 4vw, 36px);
+    }
+    header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+    }
+    header .logo {
+      width: 44px; height: 44px; border-radius: 12px; background: #111827; display: grid; place-items: center; font-weight: 800; color: #cdeafe; border:1px solid var(--ring);
+    }
+    header h1 { font-size: clamp(22px, 3.2vw, 28px); margin: 0; }
+    header p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .hero { margin-top: 12px; display: grid; gap: 12px; }
+    .hero h2 { font-size: clamp(22px, 3.6vw, 32px); margin: 0; line-height: 1.2; }
+    .hero p { color: var(--muted); margin: 0; font-size: 16px; }
+
+    .cta {
+      margin-top: 18px;
+      padding: 18px; border-radius: 16px;
+      background: rgba(3,155,229,0.08);
+      border: 1px dashed rgba(3,155,229,0.45);
+    }
+
+    .details { margin-top: 14px; display: grid; gap: 6px; }
+    .details ul { margin: 0; padding-left: 18px; color: var(--muted); }
+
+    footer { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; color: var(--muted); font-size: 14px; }
+    footer a { color: #cdeafe; text-decoration: none; border-bottom: 1px dotted #cdeafe33; }
+    footer a:hover { border-bottom-color: #cdeafe; }
+
+    /* Fallback link styling (si JS está bloqueado) */
+    .fallback-link a { display: inline-block; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--ring); background: #0b2440; color: #e6f3ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="shell" role="main">
+    <header>
+      <div class="logo" aria-hidden="true">C+</div>
+      <div>
+        <h1>Consultorio — Turnos Online</h1>
+        <p>Reservá tu turno en minutos. Confirmación inmediata vía Google Calendar.</p>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="titulo-turnos">
+      <h2 id="titulo-turnos">Reservá tu turno</h2>
+      <p>Elegí día y horario disponibles desde nuestra agenda en Google Calendar. Sin llamadas, sin vueltas.</p>
+      <div class="cta" aria-label="Botón de programación de turnos">
+        <!-- Google Calendar Appointment Scheduling begin -->
+        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+        <script>
+        (function() {
+          var target = document.currentScript;
+          window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2cc4WoeycAcK-CVgc5Dz2dJvSSwdGarjH3LRdngc7f5tRw0pX3vBHjlefIQlAXMzcMcs2f_yjP?gv=true',
+              color: '#039BE5',
+              label: "Programar medici\xF3n",
+              target,
+            });
+          });
+        })();
+        </script>
+        <!-- end Google Calendar Appointment Scheduling -->
+        <noscript class="fallback-link">
+          <p>Si no ves el botón, hacé clic aquí:</p>
+          <p><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2cc4WoeycAcK-CVgc5Dz2dJvSSwdGarjH3LRdngc7f5tRw0pX3vBHjlefIQlAXMzcMcs2f_yjP?gv=true" target="_blank" rel="noopener">Abrir agenda de turnos</a></p>
+        </noscript>
+      </div>
+      <div class="details">
+        <strong>¿Cómo funciona?</strong>
+        <ul>
+          <li>Elegís un horario disponible y dejás tus datos.</li>
+          <li>Recibís confirmación automática por email/calendario.</li>
+          <li>Podés reprogramar o cancelar desde el mismo enlace.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="y"></span> Consultorio</span>
+      <span aria-hidden="true">·</span>
+      <a href="#" aria-label="Política de privacidad">Política de privacidad</a>
+      <span aria-hidden="true">·</span>
+      <a href="#" aria-label="Términos y condiciones">Términos</a>
+    </footer>
+  </div>
+
+  <script>
+    // Año dinámico en el footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
